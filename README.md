@@ -22,5 +22,6 @@ rollup -c | dot -Tpng > graph.png
 
 There is only one option available.
 
-  * `prune` (bool) Whether to prune the resulting graph, leaving only cyclic dependencies.
+  * `prune` (bool) Whether to prune the resulting graph, leaving only cyclic dependencies.  
+     Examples: [pruned](https://raw.githubusercontent.com/ondras/sleeping-beauty/master/graphs/pruned.png), [not pruned](https://raw.githubusercontent.com/ondras/sleeping-beauty/master/graphs/complete.png)
   
