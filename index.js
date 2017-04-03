@@ -1,3 +1,5 @@
+"use strict";
+
 function toDot(modules) {
 	console.log("digraph G {");
 	console.log("edge [dir=back]")
