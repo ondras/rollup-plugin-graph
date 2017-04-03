@@ -1,0 +1,19 @@
+{
+  "name": "rollup-plugin-graph",
+  "version": "1.0.0",
+  "description": "Generate module dependencies graph, using the DOT language",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ondras/rollup-plugin-graph.git"
+  },
+  "keywords": [
+    "rollup-plugin"
+  ],
+  "author": "Ondřej Žára",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ondras/rollup-plugin-graph/issues"
+  },
+  "homepage": "https://github.com/ondras/rollup-plugin-graph"
+}
