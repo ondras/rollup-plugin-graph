@@ -35,7 +35,7 @@ function getPrefix(ids) {
 
 module.exports = function plugin(options = {}) {
 	return {
-		onwrite(data) {
+		ongenerate(data) {
 			let ids = data.bundle.modules.map(m => m.id);
 			let prefix = getPrefix(ids);
 
