@@ -35,16 +35,19 @@ function getPrefix(ids) {
 
 module.exports = function plugin(options = {}) {
 	return {
-		ongenerate(data) {
+		onwrite(data) {
 			let ids = data.bundle.modules.map(m => m.id);
 			let prefix = getPrefix(ids);
+			let strip = str => str.substring(prefix.length);
+			let exclude = str => options.exclude && str.match(options.exclude);
 
 			let modules = [];
 			data.bundle.modules.forEach(module => {
 				let m = {
-					id: module.id.substring(prefix.length),
-					deps: module.dependencies.map(dep => dep.substring(prefix.length))
+					id: strip(module.id),
+					deps: module.dependencies.map(strip).filter(x => !exclude(x))
 				}
+				if (exclude(m.id)) { return; }
 				modules.push(m);
 			});
 			if (options.prune) { prune(modules); }

@@ -20,8 +20,6 @@ rollup -c | dot -Tpng > graph.png
 
 ## Options
 
-There is only one option available.
-
   * `prune` (bool) Whether to prune the resulting graph, leaving only cyclic dependencies. This makes the graph [strongly connected](https://en.wikipedia.org/wiki/Strongly_connected_component).
      Examples: [pruned](https://raw.githubusercontent.com/ondras/sleeping-beauty/master/graphs/pruned.png), [not pruned](https://raw.githubusercontent.com/ondras/sleeping-beauty/master/graphs/complete.png)
-  
+  * `exclude` (string or regexp) Specified the module ID pattern to be excluded from the graph.
