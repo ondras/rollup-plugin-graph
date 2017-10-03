@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-graph",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Generate module dependencies graph, using the DOT language",
   "main": "index.js",
   "repository": {
