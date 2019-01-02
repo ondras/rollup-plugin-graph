@@ -34,18 +34,23 @@ function getPrefix(ids) {
 }
 
 module.exports = function plugin(options = {}) {
+	let exclude = str => options.exclude && str.match(options.exclude);
+
 	return {
-		ongenerate(data) {
-			let ids = data.bundle.modules.map(m => m.id);
+		generateBundle(bundleOptions, bundle, isWrite) {
+			let ids = [];
+			for (const moduleId of this.moduleIds) { 
+				if (!exclude(moduleId)) { ids.push(moduleId); }
+			}
+
 			let prefix = getPrefix(ids);
 			let strip = str => str.substring(prefix.length);
-			let exclude = str => options.exclude && str.match(options.exclude);
 
 			let modules = [];
-			data.bundle.modules.forEach(module => {
+			ids.forEach(id => {
 				let m = {
-					id: strip(module.id),
-					deps: module.dependencies.map(strip).filter(x => !exclude(x))
+					id: strip(id),
+					deps: this.getModuleInfo(id).importedIds.filter(x => !exclude(x)).map(strip)
 				}
 				if (exclude(m.id)) { return; }
 				modules.push(m);
