@@ -39,7 +39,7 @@ module.exports = function plugin(options = {}) {
 	return {
 		generateBundle(bundleOptions, bundle, isWrite) {
 			let ids = [];
-			for (const moduleId of this.moduleIds) { 
+			for (const moduleId of this.getModuleIds()) { 
 				if (!exclude(moduleId)) { ids.push(moduleId); }
 			}
 
